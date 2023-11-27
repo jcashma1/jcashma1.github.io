@@ -72,14 +72,14 @@
     
     // function to satyle my chloropath map
     function style1(feature) {
-	    d = feature.properties.COLLEGE_UNDERGRADUATE / feature.properties.NOT_ENROLLED * 100.0;
-	    answer = d > 1000 ? '#800026' :
-		     d > 800 ? '#DB0026' :
-		     d > 600 ? '#E31A1C' :
-		     d > 400 ? '#FC4E2A' :
-		     d > 200 ? '#FD8D3C' :
-		     d > 100  ? '#FEB24C' :
-		     d > 50  ? '#FED976' :
+	    d = feature.properties.GRADE_1_TO_4 / feature.properties.ENROLLED_IN_SCHOOL * 100.0;
+	    answer = d > 800 ? '#800026' :
+		     d > 600 ? '#DB0026' :
+		     d > 400 ? '#E31A1C' :
+		     d > 200 ? '#FC4E2A' :
+		     d > 100 ? '#FD8D3C' :
+		     d > 50  ? '#FEB24C' :
+		     d > 52  ? '#FED976' :
 		    	      '#FFEDA0' ;
 	    styleReturn = { 
 		    fillColor : answer, 
@@ -99,8 +99,8 @@
 			// convert the file (data) into a layer
 			acsDenver2021Layer = L.geoJSON(data, { style : style1,
 			onEachFeature : function(feature, layer) {
-				d = feature.properties.COLLEGE_UNDERGRADUATE / feature.properties.NOT_ENROLLED * 100.0;
-        layer.bindPopup("Percent College Undergraduates: " + 
+				d = feature.properties.GRADES_1_TO_4 / feature.properties.ENROLLED_IN_SCHOOL * 100.0;
+        layer.bindPopup("Percent of Children in GRades 1-4: " + 
 d + '%');
 				}
 			}).addTo(map);
@@ -129,7 +129,7 @@ d + '%');
 
 <div id="header">
 	<h1><a href="https://www.census.gov/programs-surveys/acs">Denver 2021 American Community Survey (Census) data</a></h1>
-	<h2> Percentage of College Undergraduates Enrolled in Shcool in the Denver Metro Area</h2>
+	<h2> Percentage of Children in Grades 1-4 in the Denver Metro Area</h2>
 	<p>Data from <a href="https://denvergov.org/opendata/dataset/city-and-county-of-denver-american-community-survey-blk-grp-2017-2021">Denver Open Data</a></p>
 </div>
 <div id="map"></div>
