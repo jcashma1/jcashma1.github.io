@@ -73,13 +73,13 @@
     // function to satyle my chloropath map
     function style1(feature) {
 	    d = feature.properties.PCT_HISPANIC;
-	    answer = d > 20 ? '#800026' :
-		     d > 15 ? '#DB0026' :
-		     d > 10 ? '#E31A1C' :
-		     d > 8 ? '#FC4E2A' :
-		     d > 6  ? '#FD8D3C' :
-		     d > 4  ? '#FEB24C' :
-		     d > 1  ? '#FED976' :
+	    answer = d > 80 ? '#800026' :
+		     d > 70 ? '#DB0026' :
+		     d > 50 ? '#E31A1C' :
+		     d > 25 ? '#FC4E2A' :
+		     d > 10 ? '#FD8D3C' :
+		     d > 5 ? '#FEB24C' :
+		     d > 1 ? '#FED976' :
 		    	      '#FFEDA0' ;
 	    styleReturn = { 
 		    fillColor : answer, 
