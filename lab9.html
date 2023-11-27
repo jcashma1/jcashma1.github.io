@@ -101,7 +101,7 @@
 			onEachFeature : function(feature, layer) {
 				d = feature.properties.COLLEGE_UNDERGRADUATE / feature.properties.NOT_ENROLLED * 100.0;
         layer.bindPopup("Percent College Undergraduates: " + 
-(d + '%');
+d + '%');
 				}
 			}).addTo(map);
 
