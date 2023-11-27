@@ -72,6 +72,11 @@
     
     // function to satyle my chloropath map
     function style1(feature) {
+	     if (feature.properties.ENROLLED_IN_SCHOOL == 0) {
+			d = 0;
+	     } else {	
+	    	 d = feature.properties.GRADES_1_TO_4 / feature.properties.ENROLLED_IN_SCHOOL * 100.0;
+		}
 	    d = feature.properties.GRADE_1_TO_4 / feature.properties.ENROLLED_IN_SCHOOL * 100.0;
 	    answer = d > 35 ? '#800026' :
 		     d > 30 ? '#DB0026' :
@@ -99,9 +104,13 @@
 			// convert the file (data) into a layer
 			acsDenver2021Layer = L.geoJSON(data, { style : style1,
 			onEachFeature : function(feature, layer) {
+			if (feature.properties.ENROLLED_IN_SCHOOL == 0) {
+				d = 0;
+			} else {	
 				d = feature.properties.GRADES_1_TO_4 / feature.properties.ENROLLED_IN_SCHOOL * 100.0;
-        layer.bindPopup("Percent of Children in GRades 1-4: " + 
-d + '%');
+			}
+				layer.bindPopup("Percent of Children in Grades 1-4: " + 
+			d + '%');
 				}
 			}).addTo(map);
 
