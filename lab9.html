@@ -72,19 +72,14 @@
     
     // function to satyle my chloropath map
     function style1(feature) {
-	     if (feature.properties.ENROLLED_IN_SCHOOL == 0) {
-			d = 0;
-	     } else {	
-	    	 d = feature.properties.GRADES_1_TO_4 / feature.properties.ENROLLED_IN_SCHOOL * 100.0;
-		}
-	    d = feature.properties.GRADE_1_TO_4 / feature.properties.ENROLLED_IN_SCHOOL * 100.0;
-	    answer = d > 35 ? '#800026' :
-		     d > 30 ? '#DB0026' :
-		     d > 25 ? '#E31A1C' :
-		     d > 20 ? '#FC4E2A' :
-		     d > 15 ? '#FD8D3C' :
-		     d > 10 ? '#FEB24C' :
-		     d > 5  ? '#FED976' :
+	    d = feature.properties.PCT_HISPANIC;
+	    answer = d > 20 ? '#800026' :
+		     d > 15 ? '#DB0026' :
+		     d > 10 ? '#E31A1C' :
+		     d > 8 ? '#FC4E2A' :
+		     d > 6  ? '#FD8D3C' :
+		     d > 4  ? '#FEB24C' :
+		     d > 1  ? '#FED976' :
 		    	      '#FFEDA0' ;
 	    styleReturn = { 
 		    fillColor : answer, 
@@ -104,13 +99,8 @@
 			// convert the file (data) into a layer
 			acsDenver2021Layer = L.geoJSON(data, { style : style1,
 			onEachFeature : function(feature, layer) {
-			if (feature.properties.ENROLLED_IN_SCHOOL == 0) {
-				d = 0;
-			} else {	
-				d = feature.properties.GRADES_1_TO_4 / feature.properties.ENROLLED_IN_SCHOOL * 100.0;
-			}
-				layer.bindPopup("Percent of Children in Grades 1-4: " + 
-			d + "%");
+				layer.bindPopup("Percent Hispanic: " + 
+feature.properties.PCT_HISPANIC + "%");
 				}
 			}).addTo(map);
 
@@ -138,7 +128,7 @@
 
 <div id="header">
 	<h1><a href="https://www.census.gov/programs-surveys/acs">Denver 2021 American Community Survey (Census) data</a></h1>
-	<h2> Percentage of Children in Grades 1-4 in the Denver Metro Area</h2>
+	<h2> Percentage of the Hispanic population in the Denver Metro area</h2>
 	<p>Data from <a href="https://denvergov.org/opendata/dataset/city-and-county-of-denver-american-community-survey-blk-grp-2017-2021">Denver Open Data</a></p>
 </div>
 <div id="map"></div>
