@@ -21,7 +21,7 @@
      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
      crossorigin=""></script>
 <script>
-  var map = L.map('map').setView([39.751017, -105.222244], 14);
+  var map = L.map('map').setView([39.751017, -105.222244], 12);
   L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 25,
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
@@ -34,15 +34,37 @@
     radius: 450
 }).addTo(map);
   var polygon = L.polygon([
-    [39.743347, -105.011061],
-    [39.743654, -105.010339],
-    [39.742935, -105.009773],
-    [39.742607, -105.010503]
+    [39.769186, -105.212116],
+    [39.766859, -105.210228],
+    [39.770118, -105.203104],
+    [39.77266, -105.196838],
+    [39.775957, -105.196624],
+    [39.77632, -105.192161],
+    [39.780838, -105.191002],
+    [39.783245, -105.193577],
+    [39.787202, -105.193534],
+    [39.794883, -105.199585],
+    [39.796004, -105.205936],
+    [39.797784, -105.206366],
+    [39.797916, -105.213575],
+    [39.79152, -105.213833],
+    [39.790729, -105.21924],
+    [39.788619, -105.221729],
+    [39.797586, -105.221901],
+    [39.797059, -105.226192],
+    [39.792311, -105.229712],
+    [39.779386, -105.231085],
+    [39.778924, -105.225163],
+    [39.773648, -105.224648],
+    [39.767777, -105.217867],
+    [39.767381, -105.214434],
+    [39.765073, -105.21452],
+    
     
 ]).addTo(map);
   marker.bindPopup("<b>Coors Brewery</b><br>Golden, CO.").openPopup();
 circle.bindPopup("Downtown Golden.");
-polygon.bindPopup("5th Street Parking Garage.");
+polygon.bindPopup("Table Mountain.");
   var popup = L.popup()
     .setLatLng([39.741617, -105.012876])
     .setContent("Auraria Light-Rail Station.")
