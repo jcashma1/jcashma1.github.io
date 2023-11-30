@@ -59,6 +59,8 @@
     [39.767777, -105.217867],
     [39.767381, -105.214434],
     [39.765073, -105.21452],
+    [39.765948, -105.211859],
+    [39.768948, -105.213726]
     
     
 ]).addTo(map);
@@ -66,8 +68,8 @@
 circle.bindPopup("Downtown Golden.");
 polygon.bindPopup("Table Mountain.");
   var popup = L.popup()
-    .setLatLng([39.741617, -105.012876])
-    .setContent("Auraria Light-Rail Station.")
+    .setLatLng([39.757797, -105.220793])
+    .setContent("Golden Mill Taphouse.")
     .openOn(map);
   function onMapClick(e) {
     alert("You clicked the map at " + e.latlng);
